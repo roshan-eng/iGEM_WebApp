@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>
+		PAM Searching Tool
+	</title>
+
+    <style>
+
+    body {
+        background: url("../PAM_finder/media/Images/background.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    footer {
+        margin-left: 40px;
+    }
+
+    .logo {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: inline-block;
+        justify-content: left;
+        align-items: center;
+    }
+
+    .nav-list li {
+        list-style: none;
+        padding: 10px 1px;
+    }
+
+    .nav-list li a {
+        text-decoration: none;
+        color: navy;
+    }
+
+    .rightNav {
+        padding-left: 40px;
+        text-align: left;
+    }
+
+    #search {
+        padding: 5px 10px 5px 10px;
+        font-size: 17px;
+        border: 2px solid grey;
+        border-radius: 9px;
+    }
+
+    .btn-sm {
+        margin-left: 20px;
+        width: 80px;
+        height: 35px;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 18px;
+        transition-duration: 0.4s;
+    }
+
+    .btn-sm:hover {
+        background-color: darkseagreen;
+        color: gray;
+    }
+
+    .Overview-Section {
+        margin: 40px;
+    }
+
+    .text-big {
+        font-size: 35px;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    .text-small {
+        font-size: 17px;
+        line-height: 1.3;
+        font-family: "Georgia", serif, Serif;
+        text-align: justify;
+    }
+
+    .desc-img-1 {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    </style>
+</head>
+
+<body>
+	<nav class="navbar background">
+		<ul class="nav-list">
+			<div class="logo">
+				<img src="../PAM_finder/media/Images/iitr_logo.png" alt="IIT Roorkee" width="96" height="96">
+			</div>
+			<li><a href="/PAM_finder/finder_tool">Finder Tool</a></li>
+			<li><a href="/PAM_finder/about_us">About Us</a></li>
+		</ul>
+
+		<div class="rightNav">
+            <label for="search"></label><input type="text" name="search" id="search">
+			<button class="btn-sm">Search</button>
+		</div>
+	</nav>
+
+	<section class="Overview-Section">
+		<div class="box-main">
+			<div class="firstHalf">
+				<h1 class="text-big" id="web">
+					What is the PAM sequence for CRISPER and where is it ?
+				</h1>
+
+				<p class="text-small">
+					CRISPR-Cas9 mechanisms recognize DNA targets that are complementary to a short CRISPR RNA
+                    (crRNA) sequence. The part of the crRNA sequence that is complementary to the target sequence
+                    is known as a spacer. In order for Cas9 to function, it also requires a specific protospacer
+                    adjacent motif (PAM) that varies depending on the bacterial species of the Cas9 gene. The most
+                    commonly used Cas9 nuclease, derived from S. pyogenes, recognizes a PAM sequence of NGG that
+                    is found directly downstream of the target sequence in the genomic DNA, on the non-target strand.
+				</p>
+
+			</div>
+		</div>
+	</section>
+
+    <div class="desc-img-1">
+        <img src="../PAM_finder/media/Images/pam-site.png" alt="PAM-Site">
+    </div>
+
+	<footer class="background">
+		<p class="text-footer">
+			Copyright ©-It's my property !
+		</p>
+	</footer>
+</body>
+
+</html>

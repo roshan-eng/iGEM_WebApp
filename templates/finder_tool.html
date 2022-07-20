@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>
+		Finder Tool
+	</title>
+
+    <style>
+        /* Reset */
+        .upload-form,
+        .upload-form div,
+        .upload-form span,
+        .upload-form input,
+        .upload-form a,
+        .upload-form h1,
+        .upload-form p {
+            margin: auto;
+            padding: 0;
+            border: none;
+            outline: none;
+        }
+
+        body {
+        background: url("../PAM_finder/media/Images/background.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        }
+
+        /* Form Container */
+        .upload-form {
+            position: relative;
+            z-index: 100;
+            cursor: default;
+            width: 400px;
+            min-height: 500px;
+            margin-top: 120px;
+            margin-left: 700px;
+            padding: 25px 25px 65px 25px;
+
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            background-color: darkcyan;
+        }
+
+        /* Close Button */
+        .upload-form .close {
+            position: absolute;
+            display: block;
+            width: 10px;
+            height: 12px;
+            top: 20px;
+            left: 380px;
+        }
+
+        /* Form Title */
+        .upload-form h1 {
+            font-family: "Monaco", monospace;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 50px;
+            color: #f6f6f6;
+            text-shadow: 0 1px 1px rgba(0,0,0, .65);
+            padding-bottom: 2px;
+            border-bottom: 1px solid white;
+        }
+
+        /* Paragraph */
+        .upload-form p {
+            padding: 20px 7px;
+            font-family: "Georgia", serif, Serif;
+            font-size: 30px;
+            color: white;
+        }
+
+        #yourBtn {
+          position: relative;
+          top: 50px;
+          font-family: "Times New Roman", Times, serif;
+            font-size: 30px;
+          width: 350px;
+          padding: 70px 0;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border: 1px dashed #BBB;
+          text-align: center;
+          background-color: #DDD;
+          cursor: pointer;
+        }
+
+        .upload-form #upload_files {
+            height: 50px;
+            width: 170px;
+            display: block;
+            margin-top: 100px;
+            font-size: 30px;
+            font-family: "Times New Roman", Times, serif;
+            -webkit-border-radius: 0 3px 3px 0;
+            -moz-border-radius: 0 3px 3px 0;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .js .upload-form span.checkbox input[type=checkbox] {
+            position: fixed;
+            left: -99px;
+        }
+
+        .upload-form span.checkbox label {
+            position: absolute;
+            top: 3px;
+            left: 31px;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 12px;
+            color: #e4e4e4;
+            white-space: nowrap;
+        }
+
+    </style>
+
+    <script>
+        function getFile() {
+          document.getElementById("upfile").click();
+        }
+
+        function sub(obj) {
+            let file = obj.value;
+            let fileName = file.split("\\");
+            document.getElementById("yourBtn").innerHTML = fileName[fileName.length - 1];
+            document.myForm.submit();
+            event.preventDefault();
+        }
+    </script>
+
+    <meta charset="utf-8">
+
+</head>
+
+<body>
+	<div class="upload-form" id="uploader">
+
+    <!-- Form Heading -->
+    <h1 class="replace-text">Upload The Sequence</h1>
+    <a href="/PAM_finder" class="close" title="Close Window"><img src="../PAM_finder/media/Images/close_icon.png" alt="Close"></a>
+
+    <p>Currently the form accepts only plain sequence format files</p>
+
+    <!-- Select & Upload Button -->
+    <form method ='POST' enctype ="multipart/form-data" action="result" name="myForm">
+        {% csrf_token %}
+        <div id="yourBtn" onclick="getFile()">Click to upload a File</div>
+        <div style='height: 0; width: 0; overflow:hidden;'><input id="upfile" type="file" value="upload" name="file" onchange="sub(this)" /></div>
+        <input type="submit" id="upload_files" value = "Submit">
+    </form>
+
+</div>
+</body>
+
+</html>
