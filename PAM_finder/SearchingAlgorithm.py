@@ -100,7 +100,9 @@ class AhoCorasick:
 def search(filename, PAMs):
 
     seq = str()
-    fasta_sequences = SeqIO.parse(open(Path('/home/roshan/PycharmProjects/djangoProject/PAM_finder/media') / filename), 'fasta')
+    fasta_sequences = SeqIO.parse(open(Path('/home/roshan/PycharmProjects/djangoProject/PAM_finder/media') / filename),
+                                  'fasta')
+
     for fasta in fasta_sequences:
         name, seq = fasta.id, str(fasta.seq)
 
