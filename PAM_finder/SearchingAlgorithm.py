@@ -161,15 +161,12 @@ def search(filename, CAS):
             result_text += f"Guide RNA: {seq[i + len(PAM): i + len(PAM) + 20]} \n, "
             indexes.append([i, i + len(PAM) + 20, PAM])
 
-    print(result)
     features = []
     for i, j, pam in indexes:
         pam_no = sum([ord(c) for c in pam])
         random.seed(pam_no)
         color = "#" + ''.join([random.choice('0123456789ABCDEF') for j in range(6)])
         features.append(GraphicFeature(start=i, end=j, strand=+1, color=color, label=pam))
-
-    print(features)
 
     record = GraphicRecord(sequence=seq, features=features)
 
