@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-iepoqrltl+5!*n6e2s2@i*+ch-(rehx2aqyo(2!bke5d)s6#z$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'https://pamfinder.herokuapp.com/']
 
 
 # Application definition
