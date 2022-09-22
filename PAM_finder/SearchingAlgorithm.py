@@ -174,7 +174,7 @@ def search(filename, CAS):
     record = GraphicRecord(sequence=seq, features=features)
 
     record.plot_on_multiple_pages(
-        settings.MEDIA_ROOT + "/Images/multipage_plot.png",
+        settings.MEDIA_ROOT + "/Images/multipage_plot.pdf",
         nucl_per_line=140,
         lines_per_page=7,
         plot_sequence=True
