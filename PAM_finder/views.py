@@ -19,8 +19,6 @@ def result(request):
     if request.method == 'POST':
         file_text = request.FILES['file']
         option_text = request.POST['cas']
-        result_text, pdf = SearchingAlgorithm.search(file_text, option_text)
-        print(option_text)
-        print(pdf)
+        result_text = SearchingAlgorithm.search(file_text, option_text)
 
         return render(request, 'result.html')
