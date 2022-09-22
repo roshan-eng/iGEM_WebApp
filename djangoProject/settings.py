@@ -107,6 +107,10 @@ AUTH_PASSWORD_VALIDATORS = [
 MEDIA_URL = '/PAM_finder/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'PAM_finder/media')
 
+# All settings common to all environments
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
