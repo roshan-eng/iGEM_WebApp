@@ -1,0 +1,1 @@
+web: gunicorn PAM_Finder.wsgi --log-file -
