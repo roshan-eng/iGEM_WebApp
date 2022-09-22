@@ -16,13 +16,11 @@ def about_us(request):
 
 
 def result(request):
-
     if request.method == 'POST':
         file_text = request.FILES['file']
-        fs = FileSystemStorage()
-        filename = fs.save(file_text.name, file_text)
-        result_text = SearchingAlgorithm.search(filename, ['TTTG', 'TTTC', 'TTTA'])
-        print(result_text)
+        option_text = request.POST['cas']
+        result_text = SearchingAlgorithm.search(file_text, option_text)
+        print(option_text)
 
         context = {
             'seq_text': result_text

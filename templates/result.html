@@ -26,10 +26,6 @@
         padding: 5px 10px;
     }
 
-    .mylist li {
-        padding: 20px;
-    }
-
 </style>
 
 <head>
@@ -38,18 +34,7 @@
 </head>
 <body>
     <h1 class="Heading"> Result Page </h1>
-    <li class="Home" ><a href="/PAM_finder"><input type="submit" class="button" value="HOME"></a></li>
-    <ul id="myList" class="mylist">{{ seq_text }}</ul>
-    <script>
-      let list = document.getElementById("myList");
-      let data = list.innerText.split(",");
-      list.innerText = "";
+    <img src="../PAM_finder/media/Images/multipage_plot.png" alt="Result">
 
-      data.forEach((item) => {
-        let li = document.createElement("li");
-        li.innerText = item;
-        list.appendChild(li);
-      });
-    </script>
 </body>
 </html>

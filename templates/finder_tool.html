@@ -7,117 +7,59 @@
 	</title>
 
     <style>
-        /* Reset */
-        .upload-form,
-        .upload-form div,
-        .upload-form span,
-        .upload-form input,
-        .upload-form a,
-        .upload-form h1,
-        .upload-form p {
-            margin: auto;
-            padding: 0;
-            border: none;
-            outline: none;
-        }
-
         body {
         background: url("../PAM_finder/media/Images/background.jpg") no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        }
+        -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover }
 
         /* Form Container */
-        .upload-form {
-            position: relative;
-            z-index: 100;
-            cursor: default;
-            width: 400px;
-            min-height: 500px;
-            margin-top: 120px;
-            margin-left: 700px;
-            padding: 25px 25px 65px 25px;
-
-            -webkit-border-radius: 3px;
-            -moz-border-radius: 3px;
-            border-radius: 3px;
-            background-color: darkcyan;
+        .upload-form { width: 60%; margin: 70px auto; padding: 10px 50px;
+            -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background-color: #ffffff;
+            box-shadow:2px 2px 2px 2px #313131
         }
 
         /* Close Button */
-        .upload-form .close {
-            position: absolute;
-            display: block;
-            width: 10px;
-            height: 12px;
-            top: 20px;
-            left: 380px;
-        }
+        .upload-form .close { width: 10px; height: 12px; margin: 20px 50px; float: right }
 
         /* Form Title */
-        .upload-form h1 {
-            font-family: "Monaco", monospace;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 50px;
-            color: #f6f6f6;
-            text-shadow: 0 1px 1px rgba(0,0,0, .65);
-            padding-bottom: 2px;
-            border-bottom: 1px solid white;
-        }
+        .Form_header { text-transform: uppercase; font-family: "Courier New", monospace; font-weight: normal;
+            font-size: 40px; color: #161616; padding: 3px 0 4px 0; border-bottom: 1px solid #070707 }
+
+        /* Form Info */
+        .Info {font-family: "Courier New", monospace; font-weight: normal; font-size: 20px;
+            color: #161616; padding: 3px 0 4px 0}
+
+        .col-25 { float: left; width: 20%; margin-top: 10px}
+
+        .col-75 { float: left; width: 75%; margin-top: 30px }
+
+        /* Clear floats after the columns */
+        .row:after { content: ""; display: table; clear: both }
 
         /* Paragraph */
-        .upload-form p {
-            padding: 20px 7px;
-            font-family: "Georgia", serif, Serif;
-            font-size: 30px;
-            color: white;
-        }
+        .upload-form p { font-family: "Courier New", monospace;
+            word-wrap: break-word; font-size: 25px; color: #2e2e2e; float: left; padding: 30px 0 0 10px}
 
-        #yourBtn {
-          position: relative;
-          top: 50px;
-          font-family: "Times New Roman", Times, serif;
-            font-size: 30px;
-          width: 350px;
-          padding: 70px 0;
-          -webkit-border-radius: 5px;
-          -moz-border-radius: 5px;
-          border: 1px dashed #BBB;
-          text-align: center;
-          background-color: #DDD;
-          cursor: pointer;
-        }
+        #yourBtn { font-family: "Courier New", monospace; font-size: 17px;
+            -webkit-border-radius: 5px; -moz-border-radius: 5px; border: 1px dashed #070707;
+            background-color: #ffffff; cursor: pointer; text-align: center; padding: 70px}
 
-        .upload-form #upload_files {
-            height: 50px;
-            width: 170px;
-            display: block;
-            margin-top: 100px;
-            font-size: 30px;
-            font-family: "Times New Roman", Times, serif;
-            -webkit-border-radius: 0 3px 3px 0;
-            -moz-border-radius: 0 3px 3px 0;
-            border-radius: 0 3px 3px 0;
-        }
+        .upload-form #upload_files { height: 50px; width: 170px; font-size: 30px; margin: 50px 0 0 auto;
+            font-family: "Courier New", monospace; border: 3px solid #070707; background-color: #ffffff;
+            -webkit-border-radius: 0 3px 3px 0; -moz-border-radius: 0 3px 3px 0; border-radius: 3px; float: right}
 
-        .js .upload-form span.checkbox input[type=checkbox] {
-            position: fixed;
-            left: -99px;
-        }
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical }
 
-        .upload-form span.checkbox label {
-            position: absolute;
-            top: 3px;
-            left: 31px;
-            font-family: sans-serif;
-            font-weight: bold;
-            font-size: 12px;
-            color: #e4e4e4;
-            white-space: nowrap;
+       @media screen and (max-width: 600px) {
+        .col-25, .col-75, input[type=submit] {
+            width: 100%;
+            margin-top: 0
         }
+       }
 
     </style>
 
@@ -126,13 +68,18 @@
           document.getElementById("upfile").click();
         }
 
-        function sub(obj) {
+        function submission(obj) {
             let file = obj.value;
             let fileName = file.split("\\");
             document.getElementById("yourBtn").innerHTML = fileName[fileName.length - 1];
-            document.myForm.submit();
-            event.preventDefault();
         }
+
+        function option_selected(obj) {
+            let file = obj.value;
+            let fileName = file.split("\\");
+            document.getElementById("cas").innerHTML = fileName[fileName.length - 1];
+        }
+
     </script>
 
     <meta charset="utf-8">
@@ -142,21 +89,48 @@
 <body>
 	<div class="upload-form" id="uploader">
 
-    <!-- Form Heading -->
-    <h1 class="replace-text">Upload The Sequence</h1>
-    <a href="/PAM_finder" class="close" title="Close Window"><img src="../PAM_finder/media/Images/close_icon.png" alt="Close"></a>
+        <!-- Form Heading -->
+        <a href="/PAM_finder" class="close" title="Close Window"><img src="../PAM_finder/media/Images/close_icon.png" alt="Close"></a>
+        <h1 class="Form_header">Upload The Sequence</h1>
+        <h1 class="Info">Currently the form accepts only plain sequence format files,
+        Currently the form accepts only plain sequence format files,
+        Currently the form accepts only plain sequence format files,
+        Currently the form accepts only plain sequence format files,
+        Currently the form accepts only plain sequence format files</h1>
 
-    <p>Currently the form accepts only plain sequence format files</p>
+        <!-- Select & Upload Button -->
+        <form method ='POST' enctype ="multipart/form-data" action="result" name="myForm">
+            {% csrf_token %}
+            <div id="yourBtn" onclick="getFile()">Upload the sequence</div>
+            <div style='height: 0; width: 0; overflow:hidden;'><input id="upfile" type="file" value="upload" name="file" onchange="submission(this)" /></div>
 
-    <!-- Select & Upload Button -->
-    <form method ='POST' enctype ="multipart/form-data" action="result" name="myForm">
-        {% csrf_token %}
-        <div id="yourBtn" onclick="getFile()">Click to upload a File</div>
-        <div style='height: 0; width: 0; overflow:hidden;'><input id="upfile" type="file" value="upload" name="file" onchange="sub(this)" /></div>
-        <input type="submit" id="upload_files" value = "Submit">
-    </form>
+            <div class="row">
+                <p class="col-25">DNA Sequence</p>
+                <label for="subject"></label><textarea id="subject" class="col-75" name="subject" placeholder="Write sequence..." style="height:200px; padding: 10px"></textarea>
+            </div>
 
-</div>
+            <div class="row">
+                <p class="col-25">CAS Protein</p>
+                <div class="col-75"><label>
+                    <select id="cas" name="cas">
+                        <option value="SpCas9" selected="selected">SpCas9</option>
+                        <option value="SaCas9">SaCas9</option>
+                        <option value="NmeCas9">NmeCas9</option>
+                        <option value="CjCas9">CjCas9</option>
+                        <option value="StCas9">StCas9</option>
+                        <option value="LbCpf1">LbCpf1 / Cas12a</option>
+                        <option value="AsCpf1">AsCpf1 / Cas12a</option>
+                        <option value="AacCas12b">AacCas12b</option>
+                        <option value="BhCas12bv4">BhCas12b v4</option>
+                        <option value="Cas14">Cas14</option>
+                    </select>
+                </label>
+                </div>
+            </div>
+            <input type="submit" id="upload_files" value = "Submit" class="col-25" style="margin-bottom: 20px">
+        </form>
+
+    </div>
 </body>
 
 </html>
