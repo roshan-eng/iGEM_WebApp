@@ -36,6 +36,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_REPLACE_HTTPS_REFERER = True
 
+CSRF_TRUSTED_ORIGINS = ['https://pamfinder.herokuapp.com']
 
 # Application definition
 INSTALLED_APPS = [
@@ -46,11 +47,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
-    '**corsheaders.middleware.CorsMiddleware**',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
