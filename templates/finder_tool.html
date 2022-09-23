@@ -100,6 +100,7 @@
 
         <!-- Select & Upload Button -->
         <form method ='POST' enctype ="multipart/form-data" action="result" name="myForm">
+            {% csrf_token %}
             <div id="yourBtn" onclick="getFile()">Upload the sequence</div>
             <div style='height: 0; width: 0; overflow:hidden;'><input id="upfile" type="file" value="upload" name="file" onchange="submission(this)" /></div>
 
