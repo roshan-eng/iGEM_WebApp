@@ -34,7 +34,6 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_CREDENTIALS = True
 
-
 CSRF_TRUSTED_ORIGINS = ['https://pamfinder.herokuapp.com/']
 
 CORS_REPLACE_HTTPS_REFERER = True
