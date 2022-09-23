@@ -11,7 +11,9 @@ codegen==1.0
 contourpy==1.0.5
 cycler==0.11.0
 defaults==0.3.0
+dj-database-url==1.0.0
 Django==4.0.5
+django-heroku==0.3.1
 dna-features-viewer==3.1.1
 fonttools==4.37.3
 gunicorn==20.1.0
@@ -19,13 +21,14 @@ idna==3.3
 Jinja2==3.1.2
 kiwisolver==1.4.4
 MarkupSafe==2.1.1
-matplotlib==3.6.0
+matplotlib==3.5.3
 mygene==3.2.2
 numpy==1.23.0
 packaging==21.3
 pandas==1.5.0
 patterns==0.3
 Pillow==9.2.0
+psycopg2==2.9.3
 pyparsing==3.0.9
 PyQt6==6.3.1
 PyQt6-Qt6==6.3.2
