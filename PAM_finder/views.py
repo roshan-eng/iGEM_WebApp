@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from Bio import SeqIO
+from io import StringIO
 from PAM_finder import SearchingAlgorithm
 from django.core.files.storage import FileSystemStorage
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
@@ -22,7 +24,14 @@ def about_us(request):
 @csrf_protect
 def result(request):
     if request.method == 'POST':
-        file_text = request.FILES['file']
+        file_text = request.POST['seqText']
+
+        if not input_text:
+            file_text = request.FILES['file']
+            fasta_sequences = SeqIO.parse(StringIO(filename.read().decode()), str(filename).split(".")[-1])
+            for fasta in fasta_sequences:
+                name, file_text = fasta.id, str(fasta.seq)
+
         option_text = request.POST['cas']
         result_text = SearchingAlgorithm.search(file_text, option_text)
 

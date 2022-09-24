@@ -1,7 +1,5 @@
 import random
 from collections import defaultdict
-from Bio import SeqIO
-from io import StringIO
 from pathlib import Path
 from django.conf import settings
 from dna_features_viewer import GraphicFeature, GraphicRecord
@@ -143,12 +141,7 @@ def CAS_to_PAM(cas):
     return PAM
 
 
-def search(filename, CAS):
-
-    fasta_sequences = SeqIO.parse(StringIO(filename.read().decode()), "fasta")
-
-    for fasta in fasta_sequences:
-        name, seq = fasta.id, str(fasta.seq)
+def search(seq, CAS):
 
     aho_corasick = AhoCorasick(CAS_to_PAM(CAS))
     result = aho_corasick.search_words(seq)

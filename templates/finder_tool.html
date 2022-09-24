@@ -18,14 +18,14 @@
         }
 
         /* Close Button */
-        .upload-form .close { width: 10px; height: 12px; margin: 20px 50px; float: right }
+        .upload-form .close { width: 10px; height: 12px; margin: 40px 50px; float: right }
 
         /* Form Title */
         .Form_header { text-transform: uppercase; font-family: "Courier New", monospace; font-weight: normal;
-            font-size: 40px; color: #161616; padding: 3px 0 4px 0; border-bottom: 1px solid #070707 }
+            font-size: 55px; color: #161616; padding: 3px 0 4px 0; border-bottom: 1px solid #070707 }
 
         /* Form Info */
-        .Info {font-family: "Courier New", monospace; font-weight: normal; font-size: 20px;
+        .Info { font-weight: normal; font-size: 25px;
             color: #161616; padding: 3px 0 4px 0}
 
         .col-25 { float: left; width: 20%; margin-top: 10px}
@@ -36,8 +36,7 @@
         .row:after { content: ""; display: table; clear: both }
 
         /* Paragraph */
-        .upload-form p { font-family: "Courier New", monospace;
-            word-wrap: break-word; font-size: 25px; color: #2e2e2e; float: left; padding: 30px 0 0 10px}
+        .upload-form p { word-wrap: break-word; font-size: 25px; color: #2e2e2e; float: left; padding: 30px 0 0 10px}
 
         #yourBtn { font-family: "Courier New", monospace; font-size: 17px;
             -webkit-border-radius: 5px; -moz-border-radius: 5px; border: 1px dashed #070707;
@@ -72,12 +71,11 @@
             let file = obj.value;
             let fileName = file.split("\\");
             document.getElementById("yourBtn").innerHTML = fileName[fileName.length - 1];
+            document.getElementById("seqText").value = '';
         }
 
-        function option_selected(obj) {
-            let file = obj.value;
-            let fileName = file.split("\\");
-            document.getElementById("cas").innerHTML = fileName[fileName.length - 1];
+        function remove_submission() {
+            document.getElementById("yourBtn").innerHTML = "Upload The Sequence";
         }
 
     </script>
@@ -92,21 +90,17 @@
         <!-- Form Heading -->
         <a href="/PAM_finder" class="close" title="Close Window"><img src="../PAM_finder/media/Images/close_icon.png" alt="Close"></a>
         <h1 class="Form_header">Upload The Sequence</h1>
-        <h1 class="Info">Currently the form accepts only plain sequence format files,
-        Currently the form accepts only plain sequence format files,
-        Currently the form accepts only plain sequence format files,
-        Currently the form accepts only plain sequence format files,
-        Currently the form accepts only plain sequence format files</h1>
+        <h1 class="Info">Supporting All DNA Sequence Formats.</h1>
 
         <!-- Select & Upload Button -->
         <form method ='POST' enctype ="multipart/form-data" action="result" name="myForm">
             {% csrf_token %}
             <div id="yourBtn" onclick="getFile()">Upload the sequence</div>
-            <div style='height: 0; width: 0; overflow:hidden;'><input id="upfile" type="file" value="upload" name="file" onchange="submission(this)" /></div>
+            <div style='height: 0; width: 0; overflow:hidden;'><input id="upfile" type="file" value="upload" name="file" onchange="submission(this)"/></div>
 
             <div class="row">
                 <p class="col-25">DNA Sequence</p>
-                <label for="subject"></label><textarea id="subject" class="col-75" name="subject" placeholder="Write sequence..." style="height:200px; padding: 10px"></textarea>
+                <label for="seqText"></label><textarea id="seqText" class="col-75" name="subject" oninput="remove_submission()" placeholder="Write sequence..." style="height:200px; padding: 10px"></textarea>
             </div>
 
             <div class="row">
