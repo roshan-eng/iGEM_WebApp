@@ -32,20 +32,15 @@
     }
 
     .nav-list li a {
-        font-family: "sans-serif", serif; text-decoration: none; color: #005baa; font-weight: bold }
+        font-family: "Georgia", serif; text-decoration: none; color: #005baa; font-weight: bold }
 
     .Overview-Section { margin: 40px }
 
-    .text-big { font-size: 35px; font-family: "sans-serif", serif }
+    .text-big { font-size: 35px; font-family: "Georgia", serif; font-weight: normal }
 
-    .text-small { font-size: 17px; line-height: 1.3; font-family: "sans-serif", serif; text-align: justify }
+    .text-small { font-size: 17px; line-height: 1.3; font-family: "Georgia", serif; text-align: justify }
 
-    .desc-img-1 {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
-    }
+    .points { text-align: justify; margin: 20px 30px}
 
     </style>
 </head>
@@ -65,25 +60,56 @@
 		<div class="box-main">
 			<div class="firstHalf">
 				<h1 class="text-big" id="web">
-					What is the PAM sequence for CRISPER and where is it ?
+					What is a CRISPER-Cas9 ?
 				</h1>
 
+                <div class="desc-img-1">
+                <img src="../PAM_finder/media/Images/pam-site.png" alt="PAM-Site" width="400" height="425" style="float:right; box-shadow: 1px 1px 1px 1px #4c4c4c; margin: 20px">
+                </div>
+
 				<p class="text-small">
-					CRISPR-Cas9 mechanisms recognize DNA targets that are complementary to a short CRISPR RNA
-                    (crRNA) sequence. The part of the crRNA sequence that is complementary to the target sequence
-                    is known as a spacer. In order for Cas9 to function, it also requires a specific protospacer
-                    adjacent motif (PAM) that varies depending on the bacterial species of the Cas9 gene. The most
-                    commonly used Cas9 nuclease, derived from S. pyogenes, recognizes a PAM sequence of NGG that
-                    is found directly downstream of the target sequence in the genomic DNA, on the non-target strand.
+					CRISPR-Cas9 is a unique technology that enables geneticists and medical researchers to edit parts of
+                    the genome? by removing, adding or altering sections of the DNA? sequence.
 				</p>
+                <p class="text-small">
+                    It is currently the simplest, most versatile and precise method of genetic manipulation and is
+                    therefore causing a buzz in the science world.
+                </p>
+
+                <h1 style="font-size: 25px; font-family: 'Georgia', serif; font-weight: normal; margin-top: 45px" >
+					How does it work ?
+				</h1>
+
+                <p class="text-small">
+                    The CRISPR-Cas9 system consists of two key molecules that introduce a change (mutation?) into the
+                    DNA. These are:
+                </p>
+
+                <li class="points">An enzyme called Cas9. This acts as a pair of "molecular scissors" that
+                    can cut the two strands of DNA at a specific location in the genome so that bits of DNA can then be
+                    added or removed.</li>
+
+                <li class="points">A piece of RNA called guide RNA (gRNA). This consists of a small piece of
+                    pre-designed RNA sequence (about 20 bases long) located within a longer RNA scaffold. The scaffold
+                    part binds to DNA and the pre-designed sequence "guides" Cas9 to the right part of the genome. This
+                    makes sure that the Cas9 enzyme cuts at the right point in the genome.</li>
+
+                <li class="points">The guide RNA is designed to find and bind to a specific sequence in the
+                    DNA. The guide RNA has RNA bases that are complementary to those of the target DNA sequences in the
+                    genome. This means that, at least in theory, the guide RNA will only bind to the target sequence and
+                    no other regions of the genome.</li>
+
+                <li class="points">The Cas9 follows the guide RNA to the same location in the DNA sequence
+                    and makes a cut across both strands of the DNA.</li>
+
+                <li class="points">At this stage the cell recognises that the DNA is damaged and tries to repair it.</li>
+
+                <li class="points">Scientists can use the DNA repair machinery to introduce changes to one or
+                    more genes? in the genome of a cell of interest.</li>
 
 			</div>
 		</div>
 	</section>
-
-    <div class="desc-img-1">
-        <img src="../PAM_finder/media/Images/pam-site.png" alt="PAM-Site">
-    </div>
 
 	<footer class="background">
 		<p class="text-footer">
