@@ -25,10 +25,12 @@ def about_us(request):
 def result(request):
     if request.method == 'POST':
         file_text = request.POST['seqText']
+        file_text = str(file_text).replace("\n", "")
+        file_text = str(file_text).replace("\r", "")
 
-        if not input_text:
+        if not file_text:
             file_text = request.FILES['file']
-            fasta_sequences = SeqIO.parse(StringIO(filename.read().decode()), str(filename).split(".")[-1])
+            fasta_sequences = SeqIO.parse(StringIO(file_text.read().decode()), str(file_text).split(".")[-1])
             for fasta in fasta_sequences:
                 name, file_text = fasta.id, str(fasta.seq)
 
