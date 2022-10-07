@@ -115,7 +115,7 @@ def search(seq, PAM):
 
     features = []
     for i, j, pam in indexes:
-        pam_no = sum([ord(c) for c in pam])
+        pam_no = sum([ord(c) * (10**i) for i, c in enumerate(pam)])
         random.seed(pam_no)
         color = "#" + ''.join([random.choice('0123456789ABCDEF') for j in range(6)])
         features.append(GraphicFeature(start=i, end=j, strand=+1, color=color, label=pam))
