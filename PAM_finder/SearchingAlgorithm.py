@@ -100,50 +100,9 @@ class AhoCorasick:
         return result
 
 
-def CAS_to_PAM(cas):
-    N = ["A", "T", "G", "C"]
-    R = ["A", "G"]
-    Y = ["C", "T"]
-    W = ["A", "T"]
-    V = ["G", "C", "A"]
-    D = ["A", "T", "G"]
-    PAM = ["ATGC"]
+def search(seq, PAM):
 
-    if cas == "SpCas9":
-        PAM = [n+"GG" for n in N]
-
-    elif cas == "SaCas9":
-        PAM = [n1+"G"+r1+r2+n2 for n1 in N for r1 in R for r2 in R for n2 in N]
-
-    elif cas == "NmeCas9":
-        PAM = [n1+n2+n3+n4+"GATT" for n1 in N for n2 in N for n3 in N for n4 in N]
-
-    elif cas == "CjCas9":
-        PAM = [n1+n2+n3+n4+r+y+"AC" for n1 in N for n2 in N for n3 in N for n4 in N for r in R for y in Y]
-
-    elif cas == "StCas9":
-        PAM = [n1+n2+"AGAA"+w for n1 in N for n2 in N for w in W]
-
-    elif cas == "LbCpf1" or cas == "AsCpf1":
-        PAM = ["TTT"+v for v in V]
-
-    elif cas == "AaCas12b":
-        PAM = ["TT"+n for n in N]
-
-    elif cas == "BhCas12bv4":
-        PAM = [d+"TTN" for d in D]
-
-    elif cas == "Cas14":
-        PAM = ["TTTA"]
-
-    PAM = list(set(PAM))
-
-    return PAM
-
-
-def search(seq, CAS):
-
-    aho_corasick = AhoCorasick(CAS_to_PAM(CAS))
+    aho_corasick = AhoCorasick(PAM.split())
     result = aho_corasick.search_words(seq)
 
     result_text = str()
@@ -152,7 +111,7 @@ def search(seq, CAS):
         for i in result[PAM]:
             result_text += f"PAM {PAM} appears from {i} to {i + len(PAM) - 1} with "
             result_text += f"Guide RNA: {seq[i + len(PAM): i + len(PAM) + 20]} \n, "
-            indexes.append([i, i + len(PAM) + 20, PAM])
+            indexes.append([i - 20, i + len(PAM), PAM])
 
     features = []
     for i, j, pam in indexes:
