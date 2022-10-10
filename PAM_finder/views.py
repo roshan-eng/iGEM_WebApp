@@ -34,7 +34,12 @@ def result(request):
             for fasta in fasta_sequences:
                 name, file_text = fasta.id, str(fasta.seq)
 
-        option_text = request.POST['cas']
-        result_text = SearchingAlgorithm.search(file_text, option_text)
+        option_text = request.POST['pam']
+        drop_option = False
+        if not option_text:
+            option_text = request.POST['cas']
+            drop_option = True
+
+        result_text = SearchingAlgorithm.search(file_text, option_text, drop_option)
 
         return render(request, 'result.html')
